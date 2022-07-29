@@ -9,7 +9,6 @@
         function __assemble($_name, $_mail) {
             $this->name = $_name;
             $this->mail = $_mail;
-            $this->budget = $_budget;
         }
     
         public function addProductToCart($product) {
@@ -27,7 +26,7 @@
                 $sum += $product->price;
             }
     
-            $sum -= $sum * $this->discount / 100;
+            $sum -= ($sum * $this->discount / 100);
     
             return $sum;
         }
@@ -35,11 +34,9 @@
         public function doPayment() {
             $priceToPay = $this->calcPrice();
     
-            if($this->budget < $priceToPay) {
-                return('error');
-            } else {
-                return 'ok';
-            }
+            if($this->budget > $priceToPay) {
+                return('ok');
+            } 
         }
     }
 ?>

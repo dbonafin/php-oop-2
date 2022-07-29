@@ -1,4 +1,7 @@
 <?php
+ini_set('display_startup_errors',1);
+ini_set('display_errors',1);
+
     require_once __DIR__ . '/classes/DogProducts.php';
     require_once __DIR__ . '/classes/AnonymousUser.php';
     require_once __DIR__ . '/classes/RegisteredUser.php';
@@ -7,11 +10,17 @@
     $stick = new DogProducts('Fake Wood Stick', 'Dog', 9);
     $tizio_caio = new AnonymousUser('Tizio Caio', 'tizio@email.com');
 
-    $tizio_caio->budget = 40;
+    $tizio_caio->budget = 1;
     $tizio_caio->addProductToCart($stick);
   
-    if($tizio_caio->doPayment() === 'ok') {
-        echo 'Succesful payment! Thank you';
+    try {
+        if($tizio_caio->doPayment() === 'ok') {
+            echo 'Succesful payment! Thank you';
+        }
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+
+        echo('baretto');
     }
 ?>
 
