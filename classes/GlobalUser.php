@@ -6,7 +6,7 @@
         public $discount = 0;
         protected $cartProducts = [];
 
-        function __assemble($_name, $_mail) {
+        public function __construct($_name, $_mail) {
             $this->name = $_name;
             $this->mail = $_mail;
         }
