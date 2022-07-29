@@ -10,7 +10,7 @@ ini_set('display_errors',1);
     $stick = new DogProducts('Fake Wood Stick', 'Dog', 9);
     $tizio_caio = new AnonymousUser('Tizio Caio', 'tizio@email.com');
 
-    $tizio_caio->budget = 1;
+    $tizio_caio->budget = 40;
     $tizio_caio->addProductToCart($stick);
   
     try {

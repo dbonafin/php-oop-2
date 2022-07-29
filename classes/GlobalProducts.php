@@ -1,5 +1,7 @@
 <?php
+    require_once __DIR__ . '/ColorTrait.php';
     class GlobalProducts {
+        use ColorTrait;
         public $name;
         public $target;
         public $price;
